@@ -23,7 +23,7 @@
     <header class="bg-dark">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.php">
                     Testes Lógicos
                 </a>
                 
@@ -37,7 +37,7 @@
                       <a class="nav-link" href="flight-checklist.php">Flight checklist</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Requisitos</a>
+                      <a class="nav-link" href="requisitos.php">Requisitos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Medidor de Tripulação</a>

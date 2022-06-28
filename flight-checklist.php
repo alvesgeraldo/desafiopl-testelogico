@@ -1,6 +1,10 @@
 <?php
 
+    $erro = isset( $_GET['erro'] ) ? $_GET['erro'] : '';
+
     $resultadoChecklist = isset( $_GET['res'] ) ? $_GET['res'] : 'vazio';
+
+
 
 ?>
 <!DOCTYPE html>
@@ -23,7 +27,7 @@
     <header class="bg-dark">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.php">
                     Testes Lógicos
                 </a>
                 
@@ -86,6 +90,11 @@
                         <option value="nao">Não</option>  
                     </select>
                 </div>
+
+                <?php if($erro == 'vazio') { ?>
+                    <p class="text-danger">Preencha todos os campos, para poder enviar</p>
+                <?php } ?>
+
                 <button type="submit" class="btn btn-primary">Verificar</button>
             </form>
         </div>
