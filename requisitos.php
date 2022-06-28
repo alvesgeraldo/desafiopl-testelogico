@@ -1,6 +1,10 @@
 <?php
 
-    $resultadoChecklist = isset( $_GET['res'] ) ? $_GET['res'] : 'vazio';
+    $erro = isset( $_GET['erro'] ) ? $_GET['erro'] : '';
+
+    $res = $_GET['res'];
+    $idade = $_GET['idade'];
+    $tempoTrabalho = $_GET['trabalho'];
 
 ?>
 <!DOCTYPE html>
@@ -49,51 +53,41 @@
     </header>
 
     <main class="container">
-        <h1 class="h2 mt-5">1- Flight checklist</h1>
+        <h1 class="h2 mt-5">2- Verificador de requisitos</h1>
 
         <div class="container">
-            <form action="script-checklist.php" method="post"> 
-                <p>A cada item verificado responda sim, para item verificado ou não, para item não verificado</p>
+            <form action="script-requisitos.php" method="post"> 
+                <p>Preencha os dados abaixo para verificar os requisitos</p>
                 <div class="form-group">
-                    <label for="baterias">Baterias</label>
-                    <select class="form-control" id="baterias" name="baterias">
-                        <option value=""></option>
-                        <option value="sim">Sim</option>
-                        <option value="nao">Não</option>  
-                    </select>
+                    <label for="nome">Digite seu nome</label>
+                    <input type="text" class="form-control" id="nome" name="nome" placeholder="José Silva">
                 </div>
+
                 <div class="form-group">
-                    <label for="permissoes">Permissões</label>
-                    <select class="form-control" id="permissoes" name="permissoes">
-                        <option value=""></option>
-                        <option value="sim">Sim</option>
-                        <option value="nao">Não</option>  
-                    </select>
+                    <label for="anoNasc">Digite o ano do seu nascimento</label>
+                    <input type="number" class="form-control" id="anoNasc" name="anoNasc" placeholder="1990">
                 </div>
+
                 <div class="form-group">
-                    <label for="combustivel">Combustível</label>
-                    <select class="form-control" id="combustivel" name="combustivel">
-                        <option value=""></option>
-                        <option value="sim">Sim</option>
-                        <option value="nao">Não</option>  
-                    </select>
+                    <label for="anoAdmissao">Digite o ano que ingressou na empresa</label>
+                    <input type="number" class="form-control" id="anoAdmissao" name="anoAdmissao" placeholder="2020">
                 </div>
-                <div class="form-group">
-                    <label for="radio">Rádio</label>
-                    <select class="form-control" id="radio" name="radio">
-                        <option value=""></option>
-                        <option value="sim">Sim</option>
-                        <option value="nao">Não</option>  
-                    </select>
-                </div>
+                
+                <?php if($erro == 'vazio') { ?>
+                    <p class="text-danger">Preencha todos os campos, para poder enviar</p>
+                <?php } ?>
+
                 <button type="submit" class="btn btn-primary">Verificar</button>
+
             </form>
         </div>
         
-        <?php if($resultadoChecklist == 'sim') { ?>
-            <p class="text-success text-center"> Checklist realizado com sucesso </p>
-        <?php } else if ($resultadoChecklist == 'nao') { ?>
-            <p class="text-danger text-center"> Falha no Checklist </p>
+        <?php if($res == 'sucesso') { ?>
+            <p class="text-success text-center"> Sua idade é: <?= $idade ?> anos e seu tempo de trabalho na empresa é de: <?= $tempoTrabalho ?> anos </p>
+            <p class="text-success text-center">Você atende aos requisitos. Apto para viagem</p>
+        <?php } else if ($res == 'erro') { ?>
+            <p class="text-danger text-center"> Sua idade é: <?= $idade ?> anos e seu tempo de trabalho na empresa é de: <?= $tempoTrabalho ?> anos </p>
+            <p class="text-danger text-center">Você atende aos requisitos. Não está apto para viagem</p>
         <?php } ?>
 
     </main>
