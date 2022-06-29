@@ -1,10 +1,7 @@
 <?php
 
-    $erro = isset( $_GET['erro'] ) ? $_GET['erro'] : '';
+    $res = isset( $_GET['res'] ) ? $_GET['res'] : '';
 
-    $res = $_GET['res'];
-    $idade = $_GET['idade'];
-    $tempoTrabalho = $_GET['trabalho'];
 
 ?>
 <!DOCTYPE html>
@@ -44,7 +41,7 @@
                       <a class="nav-link" href="requisitos.php">Requisitos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="medidor-tripulacao.php">Medidor de Tripulação</a>
+                        <a class="nav-link" href="#">Medidor de Tripulação</a>
                     </li>
                   </ul>
                 </div>
@@ -53,28 +50,45 @@
     </header>
 
     <main class="container">
-        <h1 class="h2 mt-5">2- Verificador de requisitos</h1>
+        <h1 class="h2 mt-5">3- Medidor de Tripulação</h1>
 
-        <div class="container">
-            <form action="script-requisitos.php" method="post"> 
-                <p>Preencha os dados abaixo para verificar os requisitos</p>
-                <div class="form-group">
-                    <label for="nome">Digite seu nome</label>
-                    <input type="text" class="form-control" id="nome" name="nome" placeholder="José Silva">
-                </div>
+        <?php if($res == 'erro') { ?>
+            <p class="text-danger">Preencha todos os campos, para poder enviar</p>
+        <?php } ?>
 
-                <div class="form-group">
-                    <label for="anoNasc">Digite o ano do seu nascimento</label>
-                    <input type="number" class="form-control" id="anoNasc" name="anoNasc" placeholder="1990">
-                </div>
-
-                <div class="form-group">
-                    <label for="anoAdmissao">Digite o ano que ingressou na empresa</label>
-                    <input type="number" class="form-control" id="anoAdmissao" name="anoAdmissao" placeholder="2020">
-                </div>
+        <div class="container mb-3">
+            <form action="script-medidor.php" method="post"> 
+                <p>Preencha os dados completos dos tripulantes</p>
                 
-                <?php if($erro == 'vazio') { ?>
-                    <p class="text-danger">Preencha todos os campos, para poder enviar</p>
+                <?php for ($i=0; $i < 6; $i++) { ?> 
+                 
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="nome">Digite seu nome do <?= $i+1 ?>° tripulante</label>
+                            <input type="text" class="form-control" id="nome" name="nome<?= $i+1 ?>" placeholder="José Silva">
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="form-group">
+                            <label for="idade">Idade</label>
+                            <input type="text" class="form-control" id="idade" name="idade<?= $i+1 ?>" placeholder="32">
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="form-group">
+                            <label for="altura">Altura</label>
+                            <input type="text" class="form-control" id="altura" name="altura<?= $i+1 ?>" placeholder="1.75">
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="form-group">
+                            <label for="peso">Peso</label>
+                            <input type="text" class="form-control" id="peso" name="peso<?= $i+1 ?>" placeholder="75.8">
+                        </div>
+                    </div>
+                </div>
+
                 <?php } ?>
 
                 <button type="submit" class="btn btn-primary">Verificar</button>

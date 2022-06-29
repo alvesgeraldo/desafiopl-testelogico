@@ -40,7 +40,7 @@
                       <a class="nav-link" href="requisitos.php">Requisitos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Medidor de Tripulação</a>
+                        <a class="nav-link" href="medidor-tripulacao.php">Medidor de Tripulação</a>
                     </li>
                   </ul>
                 </div>
