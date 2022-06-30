@@ -1,14 +1,15 @@
 <?php
 
-    echo '<pre>';
-    print_r($_POST);
-    echo '</pre>';
-
     $nomes = [];
     $idades = [];
     $alturas = [];
     $pesos = [];
     $validacao = 'ok';
+    $somaPeso = 0;
+    $maisAlto = [];
+    $mediaIdade = 0;
+    $pessoaMenorPeso = 0;
+
 
     for ($i=0; $i < 6; $i++) { 
         
@@ -50,55 +51,100 @@
 
     }
 
-    /*
-
-    echo '<pre>';
-    var_dump($nomes);
-    echo '</pre>';
-
-    echo '<pre>';
-    var_dump($idades);
-    echo '</pre>';
-
-    echo '<pre>';
-    var_dump($alturas);
-    echo '</pre>';
-
-    echo '<pre>';
-    var_dump($pesos);
-    echo '</pre>';
-
-    */
-
     if (count($nomes) != 6 || count($idades) != 6 || count($alturas) != 6 || count($pesos) != 6)  {
         $validacao = 'erro';
         header('location: medidor-tripulacao.php?res='.$validacao);
     }
+
+    function pesoTotal($pesos){
+
+        $somaPeso = 0;
+
+        for ($i=0; $i < 6; $i++) { 
+        
+            $somaPeso += $pesos[$i];
     
-    
-    
-    /*
-    $nome = $_POST['nome'];
-    $anoNasc = $_POST['anoNasc'];
-    $anoAdmissao = $_POST['anoAdmissao'];
-    $resultadoVerificacao;
-    
-    if($nome == '' || $anoNasc == '' || $anoAdmissao == ''){
-        header('location: requisitos.php?erro=vazio');
+        }
+
+        return $somaPeso;
+
     }
 
-    $anoAtual = intval(date('Y'));
-    $idade = $anoAtual - $anoNasc;
-    $tempoTrabalho = $anoAtual - $anoAdmissao;
+    function primeiroSegundoAlto($alturas){
 
-    if ($idade >= 25 || $tempoTrabalho >= 5 || $idade >= 21 && $tempoTrabalho >= 2) {
-        $resultadoVerificacao = 'sucesso';
-    } else {
-        $resultadoVerificacao = 'erro';
+        $primeiraPessoaAlta = 0;
+        $segundaPessoaAlta = 0;
+        $maisAlto = [];
+
+        for ($i=0; $i < 6; $i++) { 
+        
+            if ( $alturas[$i] > $primeiraPessoaAlta ) {
+                
+                $segundaPessoaAlta = $primeiraPessoaAlta;
+                $maisAlto[1] = $maisAlto[0];
+    
+                $primeiraPessoaAlta = $alturas[$i];
+                $maisAlto[0] = $i;
+    
+            }
+    
+            if ( $alturas[$i] < $primeiraPessoaAlta && $alturas[$i] > $segundaPessoaAlta) {
+                
+                $segundaPessoaAlta = $alturas[$i];
+                $maisAlto[1] = $i;
+    
+            }
+        }
+
+        return $maisAlto;
+
     }
 
-    header('location: requisitos.php?res='.$resultadoVerificacao.'&idade='.$idade.'&trabalho='.$tempoTrabalho);
-    */
-    
+    function mediaIdade($idades){
 
+        $mediaIdade = 0;
+        $somaIdade = 0;
+
+        for ($i=0; $i < 6; $i++) { 
+        
+            $somaIdade += $idades[$i];
+    
+        }
+    
+        return $mediaIdade = $somaIdade/6;
+
+    }
+
+    function pessoaMenorPeso($pesos){
+
+        $menorPeso = 0;
+        $pessoaMenorPeso = 0;
+
+        for ($i=0; $i < 6; $i++) { 
+        
+            if($menorPeso == 0){
+                
+                $menorPeso = $pesos[$i];
+                $pessoaMenorPeso = $i;
+    
+            }
+    
+            if ( $menorPeso > $pesos[$i] ) {
+                
+                $menorPeso = $pesos[$i];
+                $pessoaMenorPeso = $i;
+    
+            }
+    
+        }
+
+        return $pessoaMenorPeso;
+
+    }
+
+    $somaPeso = pesoTotal($pesos);
+    $maisAlto = primeiroSegundoAlto($alturas);
+    $mediaIdade = mediaIdade($idades);
+    $pessoaMenorPeso = pessoaMenorPeso($pesos);
+    
 ?>

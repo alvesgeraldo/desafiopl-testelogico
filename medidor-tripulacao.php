@@ -35,6 +35,9 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                   <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
+                      <a class="nav-link" href="index.php">Início</a>
+                    </li>
+                    <li class="nav-item">
                       <a class="nav-link" href="flight-checklist.php">Flight checklist</a>
                     </li>
                     <li class="nav-item">
@@ -57,7 +60,7 @@
         <?php } ?>
 
         <div class="container mb-3">
-            <form action="script-medidor.php" method="post"> 
+            <form action="resultado-medidor.php" method="post"> 
                 <p>Preencha os dados completos dos tripulantes</p>
                 
                 <?php for ($i=0; $i < 6; $i++) { ?> 
@@ -91,18 +94,10 @@
 
                 <?php } ?>
 
-                <button type="submit" class="btn btn-primary">Verificar</button>
+                <button type="submit" class="btn btn-primary">Executar medição</button>
 
             </form>
         </div>
-        
-        <?php if($res == 'sucesso') { ?>
-            <p class="text-success text-center"> Sua idade é: <?= $idade ?> anos e seu tempo de trabalho na empresa é de: <?= $tempoTrabalho ?> anos </p>
-            <p class="text-success text-center">Você atende aos requisitos. Apto para viagem</p>
-        <?php } else if ($res == 'erro') { ?>
-            <p class="text-danger text-center"> Sua idade é: <?= $idade ?> anos e seu tempo de trabalho na empresa é de: <?= $tempoTrabalho ?> anos </p>
-            <p class="text-danger text-center">Você atende aos requisitos. Não está apto para viagem</p>
-        <?php } ?>
 
     </main>
 

@@ -38,6 +38,9 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                   <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
+                      <a class="nav-link" href="index.php">Início</a>
+                    </li>
+                    <li class="nav-item">
                       <a class="nav-link" href="flight-checklist.php">Flight checklist</a>
                     </li>
                     <li class="nav-item">
@@ -95,14 +98,14 @@
                     <p class="text-danger">Preencha todos os campos, para poder enviar</p>
                 <?php } ?>
 
-                <button type="submit" class="btn btn-primary">Verificar</button>
+                <button type="submit" class="btn btn-primary">Executar Checklist</button>
             </form>
         </div>
         
         <?php if($resultadoChecklist == 'sim') { ?>
-            <p class="text-success text-center"> Checklist realizado com sucesso </p>
+            <p class="text-success text-center h4"> <strong>Checklist realizado com sucesso!</strong> </p>
         <?php } else if ($resultadoChecklist == 'nao') { ?>
-            <p class="text-danger text-center"> Falha no Checklist </p>
+            <p class="text-danger text-center h4"> <strong> Falha no Checklist! Realize novamente. </strong> </p>
         <?php } ?>
 
     </main>

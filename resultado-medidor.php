@@ -1,5 +1,10 @@
+<?php
+
+    include './script-medidor.php';
+
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +12,6 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-    <!-- CSS externo -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/mobile.css">
-    <link rel="shortcut icon" href="img/favicon-space.ico" type="image/x-icon">
 
     <!-- Fontawesome -->
     <script src="https://kit.fontawesome.com/3ca0835c19.js" crossorigin="anonymous"></script>
@@ -34,16 +34,13 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                   <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                      <a class="nav-link" href="index.php">Início</a>
-                    </li>
-                    <li class="nav-item">
                       <a class="nav-link" href="flight-checklist.php">Flight checklist</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="requisitos.php">Requisitos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="medidor-tripulacao.php">Medidor de Tripulação</a>
+                        <a class="nav-link" href="#">Medidor de Tripulação</a>
                     </li>
                   </ul>
                 </div>
@@ -51,6 +48,36 @@
         </div>
     </header>
 
+    <main class="container">
+        
+        <h1 class="h2 my-5">Resultado da Medição da Tripulação</h1>
+
+        <div class="container mb-5">
+
+            <dl class="row">
+                <dt class="col-sm-3">Peso total dos tripulantes:</dt>
+                <dd class="col-sm-9 text-success"><strong><?= $somaPeso ?> kg</strong></dd>
+
+                <dt class="col-sm-3">Os dois tripulantes mais altos:</dt>
+                <dd class="col-sm-9">
+                    <p class="text-success"><strong><?= $nomes[$maisAlto[0]] ?></strong></p>
+                    <p class="text-success"><strong><?= $nomes[$maisAlto[1]] ?></strong></p>
+                </dd>
+
+                <dt class="col-sm-3">Idade média dos tripulantes:</dt>
+                <dd class="col-sm-9 text-success"><strong><?= $mediaIdade ?> anos</strong></dd>
+
+                <dt class="col-sm-3 text-truncate">Tripulante de menor peso:</dt>
+                <dd class="col-sm-9 text-success"><strong><?= $nomes[$pessoaMenorPeso] ?></strong></dd>
+
+            </dl>
+        </div>
+
+        <a href="medidor-tripulacao.php" class="btn btn-primary">Nova medição</a>
+
+        <a href="index.php" class="btn btn-success">Voltar ao início</a>
+
+    </main>
 
 </body>
 </html>
