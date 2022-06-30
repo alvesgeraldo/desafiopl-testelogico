@@ -51,6 +51,14 @@
         </div>
     </header>
 
+    <main class="container">
+        <section class="container d-flex justify-content-center align-items-center flex-column" style="height: 80vh;">
+          <a href="flight-checklist.php" class="btn btn-lg btn-outline-dark my-2">Flight Checklist</a>
+          <a href="flight-checklist.php" class="btn btn-lg btn-outline-dark my-2">Verificador requisitos</a>
+          <a href="flight-checklist.php" class="btn btn-lg btn-outline-dark my-2">Medidor Tripulação</a>
+        </section>
+    </main>
+
 
 </body>
 </html>
