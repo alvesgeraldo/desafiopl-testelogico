@@ -76,6 +76,7 @@
                     <input type="number" class="form-control" id="anoAdmissao" name="anoAdmissao" placeholder="2020">
                 </div>
                 
+                <!-- Mensagem de erro caso seja enviado campos vazios -->
                 <?php if($erro == 'vazio') { ?>
                     <p class="text-danger">Preencha todos os campos, para poder enviar</p>
                 <?php } ?>
@@ -85,6 +86,7 @@
             </form>
         </div>
         
+        <!-- Resultado da verificação dos requisitos ao usuários de acordo com parâmetro recebido do script -->
         <?php if($res == 'sucesso') { ?>
             <p class="text-center"> <strong>Sua idade é: <?= $idade ?> anos e seu tempo de trabalho na empresa é de: <?= $tempoTrabalho ?> anos </strong></p>
             <p class="text-success text-center h4"><strong>Você atende aos requisitos. Apto para viagem!</strong></p>

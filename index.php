@@ -20,6 +20,7 @@
 </head>
 <body>
     
+    <!-- Cabeçalho menu -->
     <header class="bg-dark">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -51,6 +52,7 @@
         </div>
     </header>
 
+    <!-- Atalhos index -->
     <main class="container">
         <section class="container d-flex justify-content-center align-items-center flex-column" style="height: 80vh;">
           <a href="flight-checklist.php" class="btn btn-lg btn-dark my-2">1 - Flight Checklist</a>

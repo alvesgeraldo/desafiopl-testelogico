@@ -21,6 +21,7 @@
 </head>
 <body>
     
+    <!-- Cabeçalho menu -->
     <header class="bg-dark">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -55,6 +56,7 @@
     <main class="container">
         <h1 class="h2 mt-5">3- Medidor de Tripulação</h1>
 
+        <!-- Caso algum campo seja enviado sem preenchimento retorna esse erro -->
         <?php if($res == 'erro') { ?>
             <p class="text-danger">Preencha todos os campos, para poder enviar</p>
         <?php } ?>
@@ -63,6 +65,7 @@
             <form action="resultado-medidor.php" method="post"> 
                 <p>Preencha os dados completos dos tripulantes</p>
                 
+                <!-- Laço for para repetição dos campos de preenchimento -->
                 <?php for ($i=0; $i < 6; $i++) { ?> 
                  
                 <div class="row">

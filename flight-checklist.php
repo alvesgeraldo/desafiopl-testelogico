@@ -22,6 +22,7 @@
 </head>
 <body>
     
+    <!-- Cabeçalho menu -->
     <header class="bg-dark">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -92,6 +93,7 @@
                     </select>
                 </div>
 
+                <!-- Resultado da validação, caso os campos sejam enviados sem preenchimento -->
                 <?php if($erro == 'vazio') { ?>
                     <p class="text-danger">Preencha todos os campos, para poder enviar</p>
                 <?php } ?>
@@ -100,6 +102,7 @@
             </form>
         </div>
         
+        <!-- Mensagem que será exibida ao usúario de acordo com parâmetro recebido do script -->
         <?php if($resultadoChecklist == 'sim') { ?>
             <p class="text-success text-center h4"> <strong>Checklist realizado com sucesso!</strong> </p>
         <?php } else if ($resultadoChecklist == 'nao') { ?>

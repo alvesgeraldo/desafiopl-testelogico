@@ -1,5 +1,6 @@
 <?php
 
+    // Inclusão do script que faz as medições e retorna o resultado
     include './scripts/script-medidor.php';
 
 ?>
@@ -54,6 +55,7 @@
 
         <div class="container mb-5">
 
+            <!-- Resultado recebido do script apresentado ao usuário -->
             <dl class="row">
                 <dt class="col-sm-3">Peso total dos tripulantes:</dt>
                 <dd class="col-sm-9 text-success"><strong><?= $somaPeso ?> kg</strong></dd>

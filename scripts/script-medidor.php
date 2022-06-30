@@ -1,5 +1,6 @@
 <?php
 
+    // Variáveis para realização das verificações
     $nomes = [];
     $idades = [];
     $alturas = [];
@@ -10,7 +11,7 @@
     $mediaIdade = 0;
     $pessoaMenorPeso = 0;
 
-
+    // Lacos derepetição fazem a inclusão dos dados recebidos por POST nos respectivos Array 1-Nome / 2-Idade / 3-Altura / 4-Peso
     for ($i=0; $i < 6; $i++) { 
         
         if( $_POST['nome'.($i+1)] != ''){
@@ -51,10 +52,15 @@
 
     }
 
+    // Verificação se todos os arrays estão completos para dar prosseguimento a verificação, caso algum campo enviado vazio retorna erro.
+
     if (count($nomes) != 6 || count($idades) != 6 || count($alturas) != 6 || count($pesos) != 6)  {
         $validacao = 'erro';
         header('location: ../medidor-tripulacao.php?res='.$validacao);
     }
+
+
+    // Funções de verificações solicitadas: 1-Peso Total / 2-Dois mais altos / 3-Média Idade / 4-Tripulante menor peso
 
     function pesoTotal($pesos){
 
@@ -142,6 +148,7 @@
 
     }
 
+    // Chamada das funções e armazenamento dos resultados nas variáveis
     $somaPeso = pesoTotal($pesos);
     $maisAlto = primeiroSegundoAlto($alturas);
     $mediaIdade = mediaIdade($idades);
