@@ -1,6 +1,6 @@
 <?php
 
-    include './script-medidor.php';
+    include './scripts/script-medidor.php';
 
 ?>
 <!DOCTYPE html>

@@ -8,7 +8,7 @@
     $resultadoVerificacao;
     
     if($nome == '' || $anoNasc == '' || $anoAdmissao == ''){
-        header('location: requisitos.php?erro=vazio');
+        header('location: ../requisitos.php?erro=vazio');
     }
 
     $anoAtual = intval(date('Y'));
@@ -21,7 +21,7 @@
         $resultadoVerificacao = 'erro';
     }
 
-    header('location: requisitos.php?res='.$resultadoVerificacao.'&idade='.$idade.'&trabalho='.$tempoTrabalho);
+    header('location: ../requisitos.php?res='.$resultadoVerificacao.'&idade='.$idade.'&trabalho='.$tempoTrabalho);
 
     
 

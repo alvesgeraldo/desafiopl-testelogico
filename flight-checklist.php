@@ -4,8 +4,6 @@
 
     $resultadoChecklist = isset( $_GET['res'] ) ? $_GET['res'] : 'vazio';
 
-
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -59,7 +57,7 @@
         <h1 class="h2 mt-5">1- Flight checklist</h1>
 
         <div class="container">
-            <form action="script-checklist.php" method="post"> 
+            <form action="./scripts/script-checklist.php" method="post"> 
                 <p>A cada item verificado responda sim, para item verificado ou não, para item não verificado</p>
                 <div class="form-group">
                     <label for="baterias">Baterias</label>

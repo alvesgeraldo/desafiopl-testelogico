@@ -53,7 +53,7 @@
 
     if (count($nomes) != 6 || count($idades) != 6 || count($alturas) != 6 || count($pesos) != 6)  {
         $validacao = 'erro';
-        header('location: medidor-tripulacao.php?res='.$validacao);
+        header('location: ../medidor-tripulacao.php?res='.$validacao);
     }
 
     function pesoTotal($pesos){

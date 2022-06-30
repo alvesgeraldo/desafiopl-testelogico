@@ -59,7 +59,7 @@
         <h1 class="h2 mt-5">2- Verificador de requisitos</h1>
 
         <div class="container">
-            <form action="script-requisitos.php" method="post"> 
+            <form action="./scripts/script-requisitos.php" method="post"> 
                 <p>Preencha os dados abaixo para verificar os requisitos</p>
                 <div class="form-group">
                     <label for="nome">Digite seu nome</label>
